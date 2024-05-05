@@ -21,6 +21,12 @@
     font-size: calc(0.5vh + 2rem);
 }
 
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
 .input-wrapper{
     display: flex;
     flex-direction: column;
