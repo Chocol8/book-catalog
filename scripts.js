@@ -45,7 +45,6 @@ sub.addEventListener("click",function(event){
                 }
                 let newBook = new book(title.value,author.value,pages.value,readValue);
                 myLibrary.push(newBook);
-                let index = 
                 foam.close();
                 let card = document.createElement("div");
                 let titleHeader = document.createElement("h1");
@@ -53,7 +52,7 @@ sub.addEventListener("click",function(event){
                 let pagesText = document.createElement("p");
                 let isRead = document.createElement("p");
                 let remove = document.createElement("button");
-                remove.classList.add("delet");
+                remove.classList.add(`delet`);
                 card.classList.add("card");
                 titleHeader.classList.add("title-header");
                 content.appendChild(card);
@@ -70,6 +69,13 @@ sub.addEventListener("click",function(event){
                 title.value= '';
                 author.value = '';
                 pages.value = '';
+                read.checked = true;
+                let delet = document.querySelectorAll(".delet");
+                for(let value = 0; value < delet.length; value++){
+                    delet[value].onclick = function(){
+                        myLibrary.splice(value,1);
+                    };
+                }
             }
         }
     }
