@@ -4,7 +4,13 @@ const nu = document.querySelector(".new");
 const foam = document.querySelector(".foam");
 const closed = document.querySelector(".close");
 const sub = document.querySelector('.submit');
-let bookNum = 1;
+
+//form Elements
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const read = document.querySelector('#read');
+const notRead = document.querySelector('#notRead');
 
 function book(title,author,pages,read){
     this.title = title;
@@ -13,15 +19,9 @@ function book(title,author,pages,read){
     this.read = read;
 }
 
-let sample1 = new book('sample1','auth',2024,'yes');
-let sample2 = new book('sample2','auth1',2023,'yes');
-
 function addBookToLibrary(buko) {
     myLibrary.push(buko);
 }
-
-addBookToLibrary(sample1);
-addBookToLibrary(sample2);
 
 nu.onclick = function(){
     foam.showModal();
@@ -32,32 +32,45 @@ closed.onclick = function(){
     foam.close();
 }
 
-sub.addEventListener("click",function(){
-    const title = document.querySelector('#title');
-    
-
-    myLibrary.push();
-});
-
-myLibrary.forEach(book => {
-    let card = document.createElement("div");
-    let titleHeader = document.createElement("h1");
-    let author = document.createElement("p");
-    let pages = document.createElement("p");
-    let isRead = document.createElement("p");
-    let remove = document.createElement("button");
-    remove.classList.add("delet");
-    card.classList.add("card");
-    titleHeader.classList.add("title-header");
-    content.appendChild(card);
-    card.appendChild(titleHeader);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(isRead);
-    card.appendChild(remove);
-    remove.textContent = `remove`;
-    titleHeader.textContent = book.title;
-        author.textContent =  `Author: ` + book.author;
-        pages.textContent = `Number of pages: ` + book.pages;
-        isRead.textContent = `Is read: ` + book.read;
+sub.addEventListener("click",function(event){
+    if(title.value){
+        if(author.value){
+            if(pages.value){
+                event.preventDefault();
+                let readValue = `yes`;
+                if(read.checked === true){
+                    readValue = read.value;
+                }else if(notRead.checked === true){
+                    readValue = notRead.value;
+                }
+                let newBook = new book(title.value,author.value,pages.value,readValue);
+                myLibrary.push(newBook);
+                let index = 
+                foam.close();
+                let card = document.createElement("div");
+                let titleHeader = document.createElement("h1");
+                let authorText = document.createElement("p");
+                let pagesText = document.createElement("p");
+                let isRead = document.createElement("p");
+                let remove = document.createElement("button");
+                remove.classList.add("delet");
+                card.classList.add("card");
+                titleHeader.classList.add("title-header");
+                content.appendChild(card);
+                card.appendChild(titleHeader);
+                card.appendChild(authorText);
+                card.appendChild(pagesText);
+                card.appendChild(isRead);
+                card.appendChild(remove);
+                remove.textContent = `remove`;
+                titleHeader.textContent = newBook.title;
+                authorText.textContent =  `Author: ` + newBook.author;
+                pagesText.textContent = `Number of pages: ` + newBook.pages;
+                isRead.textContent = `Is read: ` + newBook.read; 
+                title.value= '';
+                author.value = '';
+                pages.value = '';
+            }
+        }
+    }
 });

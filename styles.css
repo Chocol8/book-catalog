@@ -55,7 +55,7 @@ li{
 .book-wrapper{
     display: grid;
     width: 80%;
-    grid-template: repeat(4,minmax(200px,1fr)) / repeat(4,minmax(200px,1fr));
+    grid-template: repeat(auto-fill,minmax(300px,1fr)) / repeat(4,minmax(200px,1fr));
     gap: 20px;
 }
 
