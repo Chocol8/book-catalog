@@ -73,6 +73,7 @@ sub.addEventListener("click",function(event){
                 let delet = document.querySelectorAll(".delet");
                 for(let value = 0; value < delet.length; value++){
                     delet[value].onclick = function(){
+                        delet[value].parentElement.remove();
                         myLibrary.splice(value,1);
                     };
                 }
