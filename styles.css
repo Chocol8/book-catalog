@@ -49,5 +49,34 @@ li{
     display: flex;
     flex-direction: column;
     align-items: center;
+    row-gap: 15px;
+}
+
+.book-wrapper{
+    display: grid;
+    width: 80%;
+    grid-template: repeat(4,minmax(200px,1fr)) / repeat(4,minmax(200px,1fr));
+    gap: 20px;
+}
+
+.card{
+    height: 200px;
+    background-color: #e0115f;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     row-gap: 10px;
+}
+
+.delet{
+    background-color: white;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+}
+
+.title-header{
+    font-size: calc(0.5vh + 1.5rem);
 }

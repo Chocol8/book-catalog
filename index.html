@@ -14,11 +14,6 @@
     <div class="container">
         <h1 class="header-text"> Lily7590's Book Catalog </h1>
         <div class="content-wrapper">
-            <div class="input-wrapper">
-                <p>Input book: </p> 
-                <input type="text" name="book" id="book" placeholder="House of Leaves" value="">
-                <button class="insert">Insert book</button>
-            </div>
             <div class="create-book">
                 <button class="new">New book</button>
                 <dialog class="foam">
@@ -44,22 +39,24 @@
                         <ul>
                             <li>
                                 <p>Is read?</p>
-                                <div>
+                                <div>   
                                     <label for="read1">Yes</label>
                                     <input type="radio" id="read1" name="read" value="yes"><br>
                                     <label for="read2">No</label>
                                     <input type="radio" id="read2" name="read" value="no">
                                 </div>
-                                
                             </li>
                         </ul>
-                        <button class="close">Cancel</button>
+                        <div>
+                            <button class="submit">Submit</button>
+                            <button class="close">Cancel</button>
+                        </div>
+                        
                     </form>
                 </dialog>
             </div>
-            <div class="book-wrapper">
-
-            </div>
+        </div>
+        <div class="book-wrapper">
         </div>
     </div>
 </body>
