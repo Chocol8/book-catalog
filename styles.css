@@ -70,11 +70,20 @@ li{
     row-gap: 10px;
 }
 
-.delet{
+.buttonWrapper{
+    display: flex;
+    column-gap: 10px;
+    width: 100%;
+}
+
+.delet, .readButton{
     background-color: white;
     padding: 10px;
     border-radius: 50px;
     border: none;
+    display: flex;
+    width: 40%;
+    justify-content: center;
 }
 
 .title-header{

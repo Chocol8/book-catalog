@@ -51,16 +51,24 @@ sub.addEventListener("click",function(event){
                 let authorText = document.createElement("p");
                 let pagesText = document.createElement("p");
                 let isRead = document.createElement("p");
+                let buttonWrapper = document.createElement("div");
                 let remove = document.createElement("button");
+                let readButton = document.createElement("button");
+                buttonWrapper.classList.add('buttonWrapper');
+                readButton.classList.add("readButton");
                 remove.classList.add(`delet`);
                 card.classList.add("card");
+                isRead.classList.add("readStatusText");
                 titleHeader.classList.add("title-header");
                 content.appendChild(card);
                 card.appendChild(titleHeader);
                 card.appendChild(authorText);
                 card.appendChild(pagesText);
                 card.appendChild(isRead);
-                card.appendChild(remove);
+                card.appendChild(buttonWrapper);
+                buttonWrapper.appendChild(remove);
+                buttonWrapper.appendChild(readButton);
+                readButton.textContent = 'read';
                 remove.textContent = `remove`;
                 titleHeader.textContent = newBook.title;
                 authorText.textContent =  `Author: ` + newBook.author;
@@ -73,8 +81,22 @@ sub.addEventListener("click",function(event){
                 let delet = document.querySelectorAll(".delet");
                 for(let value = 0; value < delet.length; value++){
                     delet[value].onclick = function(){
-                        delet[value].parentElement.remove();
+                        delet[value].parentElement.parentElement.remove();
                         myLibrary.splice(value,1);
+                    };
+                }
+                let readStatus = document.querySelectorAll(".readButton");
+                let readStatusText = document.querySelectorAll(".readStatusText");
+                for(let value = 0; value < readStatus.length; value++){
+                    readStatus[value].onclick = function(){
+                        if(myLibrary[value].read === `yes`){
+                            myLibrary[value].read = `no`;
+                            readStatusText[value].textContent = "Is read: no";
+                        }
+                        else if(myLibrary[value].read === `no`){
+                            myLibrary[value].read = `yes`;
+                            readStatusText[value].textContent = "Is read: yes";
+                        }
                     };
                 }
             }
